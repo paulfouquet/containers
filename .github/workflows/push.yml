@@ -1,0 +1,23 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build-containers:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build containers
+        run: |
+          docker build docker/example --tag container-example --label "github_run_id=${GITHUB_RUN_ID}"
+          # Files are packed into the base directory
+          cp *.tgz packages/server/
+          docker build packages/server/ --tag container-example --label "github_run_id=${GITHUB_RUN_ID}"
+      - name: Log in to registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+
+      - name: Publish Containers
+        run: |
+          GIT_VERSION=$(git describe --tags --always --match 'v*')
+          docker tag container-paul ghcr.io/paulfouquet/containers:${GIT_VERSION}
+          docker push ghcr.io/paulfouquet/containers:${GIT_VERSION}
