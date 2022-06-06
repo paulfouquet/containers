@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: Build containers
         run: |
+          ls
           docker build container/example/ --tag container-example --label "github_run_id=${GITHUB_RUN_ID}"
           # Files are packed into the base directory
           cp *.tgz packages/server/
