@@ -8,3 +8,5 @@
 
 3. Step "Log in to registry"
    You need to login into the GitHub container registry "ghcr.io"
+
+4. Step "Publish Containers"
