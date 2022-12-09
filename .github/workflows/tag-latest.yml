@@ -1,10 +1,13 @@
 name: Tag-latest
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build-containers:
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master' && startsWith(github.event.head_commit.message, 'release:')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
