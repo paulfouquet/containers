@@ -21,4 +21,4 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ needs.release-please.outputs.release_created }}
     steps:
-      - uses: ./.github/workflows/containers
+      - uses: ./.github/workflows/push
