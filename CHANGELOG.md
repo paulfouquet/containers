@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/paulfouquet/containers/compare/v0.1.0...v0.2.0) (2023-01-11)
+
+
+### Features
+
+* test release ([#8](https://github.com/paulfouquet/containers/issues/8)) ([940d17f](https://github.com/paulfouquet/containers/commit/940d17f1bce313f29d96cbf740d72e1c5ad2ed2e))
+
 ## 0.1.0 (2023-01-11)
 
 
