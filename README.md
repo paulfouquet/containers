@@ -1,6 +1,3 @@
 # Main README
 
-test
-fsdgdsf
-dcsfsd
-fdgs
+POC containers and releases
